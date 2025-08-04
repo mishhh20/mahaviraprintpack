@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Prices | Mahavira PrintPack</title>
+    <style>
+        /* Reset defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+header, footer {
+    background: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+main {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #212529;
+    font-size: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+input, select {
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.4);
+    outline: none;
+}
+
+.lamination-options {
+    display: none;
+}
+
+button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-2px);
+}
+
+.result {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #28a745;
+    background: #e9f7ef;
+    border: 1px solid #28a745;
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    main {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #2980b9;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mahavira PrintPack</h1>
+</header>
+
+<main>
+    <h2>Get Price Estimate</h2>
+
+    <form id="costCalculator">
+        <div class="form-group">
+            <label for="length">Length (L)</label>
+            <input type="number" name="length" id="length" required>
+        </div>
+
+        <div class="form-group">
+            <label for="breadth">Breadth (B)</label>
+            <input type="number" name="breadth" id="breadth" required>
+        </div>
+
+        <div class="form-group">
+            <label for="height">Height (H)</label>
+            <input type="number" name="height" id="height" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gsm">GSM</label>
+            <input type="number" name="gsm" id="gsm" required>
+        </div>
+
+        <div class="form-group">
+            <label for="material">Material</label>
+            <select name="material" id="material">
+                <option value="kraft">Kraft</option>
+                <option value="duplex">Duplex</option>
+                <option value="corrugated">Corrugated</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="lamination" id="lamination">
+                Add Lamination
+            </label>
+        </div>
+
+        <div class="form-group lamination-options" id="laminationOptions">
+            <label for="laminationSize">Lamination Size (sq inch)</label>
+            <input type="number" name="laminationSize" id="laminationSize">
+        </div>
+
+        <button type="submit">Calculate Price</button>
+    </form>
+
+    <div class="result" id="totalCost"></div>
+    <a href="index.html" class="home-button">🏠 Home</a>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Mahavira PrintPack</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('costCalculator');
+        const laminationCheckbox = document.getElementById('lamination');
+        const laminationOptions = document.getElementById('laminationOptions');
+        const totalCostElement = document.getElementById('totalCost');
+
+        laminationCheckbox.addEventListener('change', () => {
+            laminationOptions.style.display = laminationCheckbox.checked ? 'block' : 'none';
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+            const L = parseFloat(data.get('length'));
+            const B = parseFloat(data.get('breadth'));
+            const H = parseFloat(data.get('height'));
+            const gsm = parseFloat(data.get('gsm'));
+            const lamination = data.get('lamination') === 'on';
+            const laminationSize = parseFloat(data.get('laminationSize')) || 0;
+
+            if ([L, B, H, gsm].some(isNaN)) {
+                alert('Please enter valid numbers for all fields.');
+                return;
+            }
+
+            const width = roundEven(B + H);
+            const height = roundEven(L + H);
+
+            let total = (width * height * gsm) / 1550 / 1000;
+            total += 1;  // Printing
+            total += H * 0.10; // Pinning
+            total += 18.5; // Rolls
+            total += 1.5; // Pasting
+            total += 1; // Cutting
+
+            if (lamination) {
+                total += laminationSize / 0.3/ 1000;
+            }
+
+            totalCostElement.textContent = `Total Cost: ₹${total.toFixed(2)}`;
+        });
+
+        function roundEven(n) {
+            return Math.ceil(n / 2) * 2;
+        }
+    });
+</script>
+
+</body>
+</html>
