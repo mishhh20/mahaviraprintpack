@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Packaging Estimator | Mahavira Print Pack</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    :root {
+      --primary-color: #111;
+      --accent-color: #d4af37;
+      --bg-color: #fffaf3;
+      --text-color: #333;
+      --light: #ffffff;
+      --transition: 0.3s ease-in-out;
+      --font-header: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-color);
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+    }
+
+    .estimator-section {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: var(--light);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+    }
+
+    .estimator-section h2 {
+      text-align: center;
+      font-family: var(--font-header);
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 12px 15px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      background: var(--light);
+      transition: var(--transition);
+    }
+ .home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #111;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-button:hover {
+  background-color: #d4af37;
+  color: #111;
+  transform: scale(1.05);
+}
+
+    input:focus,
+    select:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    #laminationOptions {
+      margin-top: 10px;
+      padding-left: 20px;
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 30px;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: var(--primary-color);
+      color: var(--light);
+    }
+
+    #priceResult {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--primary-color);
+      background: #fdf7e5;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .estimator-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="estimator-section" id="prices" data-aos="fade-up">
+  <h2>Get Your Price Estimate</h2>
+  <form id="priceCalculator">
+    <label>Length (L): <input type="number" id="length" required></label>
+    <label>Breadth (B): <input type="number" id="breadth" required></label>
+    <label>Height (H): <input type="number" id="height" required></label>
+
+    <label>Sheet Material:</label>
+    <select id="materialType" required>
+      <option value="" disabled selected>Select Material</option>
+      <option value="paper">Paper</option>
+      <option value="duplex">Duplex</option>
+    </select>
+
+    <label>Gram of Material: <input type="number" id="gram" required></label>
+
+    <label><input type="checkbox" id="printing"> Include Printing</label>
+    <label><input type="checkbox" id="lamination"> Include Lamination</label>
+
+    <div id="laminationOptions">
+      <label>Lamination Size: <input type="number" id="laminationSize"></label>
+    </div>
+
+    <label><input type="checkbox" id="rolls"> Include Rolls <label>
+    <label><input type="checkbox" id="pasting"> Include Pasting </label>
+    <label><input type="checkbox" id="cutting"> Include Cutting </label>
+
+    <button type="button" onclick="calculateCost()">Calculate Cost</button>
+  </form>
+
+  <div id="priceResult"></div>
+
+</section>
+<a href="index.html" class="home-button" data-aos="fade-down">← Home</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  document.getElementById('lamination').addEventListener('change', function () {
+    document.getElementById('laminationOptions').style.display = this.checked ? 'block' : 'none';
+  });
+
+  function makeEven(num) {
+    return num % 2 === 0 ? num : num + 1;
+  }
+
+  function calculateCost() {
+    const L = parseFloat(document.getElementById('length').value);
+    const B = parseFloat(document.getElementById('breadth').value);
+    const H = parseFloat(document.getElementById('height').value);
+    const gram = parseFloat(document.getElementById('gram').value);
+
+    if (isNaN(L) || isNaN(B) || isNaN(H) || isNaN(gram)) {
+      alert("Please fill in all dimensions and gram weight.");
+      return;
+    }
+
+    let sheetWidth = makeEven(B + H);
+    let sheetLength = makeEven(L + H);
+    let sheetSize = sheetWidth * sheetLength;
+
+    let baseCost = (sheetSize * gram) / 1550 / 1000;
+    let totalCost = baseCost;
+
+    if (document.getElementById('printing').checked) totalCost += 1;
+
+    if (document.getElementById('lamination').checked) {
+      const laminationSize = parseFloat(document.getElementById('laminationSize').value);
+      if (!isNaN(laminationSize)) {
+        totalCost += (laminationSize / 0.3) / 1000;
+      }
+    }
+
+    if (document.getElementById('rolls').checked) totalCost += 18.5;
+    if (document.getElementById('pasting').checked) totalCost += 1.5;
+    if (document.getElementById('cutting').checked) totalCost += 1;
+
+    document.getElementById('priceResult').innerText = `Estimated Cost per Unit: ₹${totalCost.toFixed(2)}`;
+  }
+</script>
+</body>
+</html>
