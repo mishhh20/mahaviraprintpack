@@ -1,121 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mahavira Printpack </title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahavira Printpack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
-
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div><i class="fas fa-phone"></i> +91-9654757354</div>
-    <div><i class="fas fa-envelope"></i> mahaviraprintpack@gmail.com</div>
-    <div><i class="fas fa-map-marker-alt"></i> Delhi, India</div>
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="logo"><img src="image.png" alt="Mahavira Logo" class="logo" /></div>
-    <nav class="navbar">
-      <a href="#home">Home</a>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="getprices.html" class="active">Prices</a>
+  <header class="hero" data-aos="fade-in">
+    <nav class="navbar" data-aos="fade-down">
+      <div class="logo">Mahavira Printpack</div>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="cta">Contact Us</a></li>
+      </ul>
     </nav>
-  </header>
+    <section id="hero" class="section hero-section">
+  <div class="animated-background"></div>
+  <div class="hero-content" data-aos="fade-in">
+    <h1 class="hero-title">Innovative Packaging.<br />Timeless Design.</h1>
+    <p class="hero-subtitle">Crafting high-quality, sustainable packaging solutions tailored for your brand's success.</p>
+    <a href="getqoute.html" class="btn-quote" data-aos="zoom-in">Get a Quotation</a>
 
-  
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h1>Welcome to Mahavira Printpack</h1>
-    <p>Leading manufacturer of flexible packaging solutions with a focus on innovation, quality, and sustainability.</p>
+  </div>
+</section>
+
+<style>
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdfaf5;
+  color: #111;
+  text-align: center;
+}
+
+.animated-background {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 223, 93, 0.2), transparent 70%),
+              repeating-conic-gradient(from 0deg, rgba(212,175,55,0.08) 0deg 10deg, transparent 10deg 20deg);
+  animation: slowRotate 30s linear infinite;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  animation: fadeInUp 2s ease-out;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+  color: #333;
+}
+
+.btn-gold {
+  background-color: #c59d2f;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-gold:hover {
+  background-color: #a67c00;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+@keyframes slowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+  </header> 
+  <section class="section highlight-section" data-aos="fade-up">
+  <div class="highlight-content">
+    <h2 class="section-title">Packaging That Speaks For Your Brand</h2>
+    <p class="section-subtitle">
+      At Mahavira Printpack, we combine cutting-edge technology with craftsmanship to deliver packaging that leaves a lasting impression. From design to delivery — we do it all, with precision and flair.
+    </p>
+    <div class="highlight-points" data-aos="fade-up" data-aos-delay="200">
+      <div class="point">✅ 4 & 5 Colour Heidelberg Printing</div>
+      <div class="point">✅ Custom Shapes, Sizes & Finishes</div>
+      <div class="point">✅ Eco-Friendly & Recyclable Materials</div>
+      <div class="point">✅ Fast Turnaround with Quality Assurance</div>
+    </div>
+  </div>
+</section>
+
+
+ <section id="products" class="section">
+  <h2 class="section-title" data-aos="fade-up">Our Products</h2>
+  <div class="product-grid">
+    <div class="product-card" data-aos="fade-up">
+      <img src="machinee.webp" alt="Printing Machines" />
+      <h3>Printing Machines</h3>
+      <p>4 & 5 colour Heidelberg printing machines for vibrant, accurate print quality.</p>
+    </div>
+    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="uvv.webp" alt="UV and Coating Services" />
+      <h3>UV & Coating</h3>
+      <p>Hybrid UV, gloss/matt varnish, base coat, blister coating, and full UV solutions.</p>
+    </div>
+    <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="leafingg.webp" alt="Hot Stamping" />
+      <h3>Leafing & Hot Stamping</h3>
+      <p>Premium foil stamping and metallic effects for high-end packaging.</p>
+    </div>
+    <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="OIP.webp" alt="Lamination Machines" />
+      <h3>Lamination Services</h3>
+      <p>4 lamination machines supporting cold and thermal lamination processes.</p>
+    </div>
+    <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+      <img src="spot uv.webp" alt="Spot UV" />
+      <h3>Spot UV Coating</h3>
+      <p>High-precision Spot UV for luxury finish and visual appeal.</p>
+    </div>
+    <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+      <img src="box.jpg" alt="Corrugation Machines" />
+      <h3>Corrugation Solutions</h3>
+      <p>5 corrugation machines producing E Flute, Narrow Flute, and Micro Flute rolls.</p>
+    </div>
+    
+    <div class="product-card" data-aos="fade-up" data-aos-delay="700">
+  <img src="scodix.webp" alt="Scodix Digital Enhancement" />
+  <h3>Scodix Digital Enhancement</h3>
+  <p>Advanced Scodix technology for high-quality UV, embossing, and foil effects that elevate your packaging.</p>
+</div>
+<div class="product-card" data-aos="fade-up" data-aos-delay="600">
+      <img src="boxess.webp" alt="Custom Box Manufacturing" />
+      <h3>Custom Box Manufacturing</h3>
+      <p>Fully customizable box manufacturing plant to suit diverse needs and demands.</p>
+    </div>
+  </div>
+</section>
+
+
+  <section id="features" class="section features">
+    <h2 class="section-title" data-aos="fade-up">Why Choose Us</h2>
+    <div class="features-grid">
+      <div class="feature" data-aos="fade-right">
+        <h3>Eco-Friendly</h3>
+        <p>Sustainable materials that don’t compromise on quality.</p>
+      </div>
+      <div class="feature" data-aos="fade-left">
+        <h3>Custom Design</h3>
+        <p>Brand-first packaging tailored to your identity.</p>
+      </div>
+      <div class="feature" data-aos="fade-right">
+        <h3>Rapid Delivery</h3>
+        <p>On-time, every time — wherever you are.</p>
+      </div>
+      <div class="feature" data-aos="fade-left">
+        <h3>Bulk Orders</h3>
+        <p>Scalable solutions for growing businesses and large enterprises.</p>
+      </div>
+      
+    </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="feature-box">
-      <i class="fas fa-box-open"></i>
-      <h3>Custom Packaging</h3>
-      <p>Tailor-made designs to suit your brand and product.</p>
+  <section id="gallery" class="section partners-section">
+  <div class="partners-container">
+    <div class="partners-text" data-aos="fade-right">
+      <h2 class="section-title">Our Partners</h2>
+      <p>Trusted by top brands for premium quality and consistency in every print.</p>
     </div>
-    <div class="feature-box">
-      <i class="fas fa-recycle"></i>
-      <h3>Eco-Friendly</h3>
-      <p>Sustainable materials and production processes.</p>
-    </div>
-    <div class="feature-box">
-      <i class="fas fa-industry"></i>
-      <h3>Modern Facilities</h3>
-      <p>State-of-the-art machinery and production lines.</p>
-    </div>
-    <div class="feature-box">
-      <i class="fas fa-clock"></i>
-      <h3>Timely Delivery</h3>
-      <p>Reliable service with guaranteed on-time delivery.</p>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <p>At Mahavira Printpack, we specialize in creating high-quality, innovative packaging solutions for a variety of industries. With decades of experience, we are committed to excellence, sustainability, and customer satisfaction.</p>
-  </section>
-<!-- What Makes Us Best -->
-<section class="what-makes-us-best">
-    <h2>What Makes Us Best</h2>
-    <div class="best-features">
-      <div class="box">
-        <i class="fas fa-check-circle"></i>
-        <h3>Unmatched Quality</h3>
-        <p>Top-tier packaging with rigorous quality checks and certifications.</p>
-      </div>
-      <div class="box">
-        <i class="fas fa-bolt"></i>
-        <h3>Fast Turnaround</h3>
-        <p>Swift production timelines with just-in-time delivery promise.</p>
-      </div>
-      <div class="box">
-        <i class="fas fa-leaf"></i>
-        <h3>Eco-Conscious</h3>
-        <p>Use of biodegradable and recyclable materials wherever possible.</p>
-      </div>
-    </div>
-  </section>
-<!-- How We Work -->
-<section class="how-we-work">
-    <h2>How We Work</h2>
-    <div class="workflow">
-      <div class="step">
-        <i class="fas fa-lightbulb"></i>
-        <h3>Concept</h3>
-        <p>We understand your packaging needs and objectives.</p>
-      </div>
-      <div class="step">
-        <i class="fas fa-pencil-ruler"></i>
-        <h3>Design</h3>
-        <p>Our team crafts custom design concepts tailored to your brand.</p>
-      </div>
-      <div class="step">
-        <i class="fas fa-cogs"></i>
-        <h3>Production</h3>
-        <p>High-quality manufacturing using state-of-the-art machinery.</p>
-      </div>
-      <div class="step">
-        <i class="fas fa-truck"></i>
-        <h3>Delivery</h3>
-        <p>Reliable, on-time delivery at your doorstep.</p>
-      </div>
-    </div>
-  </section>
-<!-- Our Partners -->
-<section class="our-partners">
-    <h2>Our Partners</h2>
-    <div class="partner-slider">
-      <div class="partner-track">
+    <div class="partners-logos" data-aos="fade-left">
+      <div class="logos-track">
         <img src="partner1.jpeg" alt="Partner 1" />
         <img src="partner2.png" alt="Partner 2" />
         <img src="partner3.jpeg" alt="Partner 3" />
@@ -123,59 +217,122 @@
         <img src="partner5.jpeg" alt="Partner 5" />
         <img src="partner6.jpeg" alt="Partner 6" />
         <img src="partner7.jpg" alt="Partner 7" />
+        <!-- Duplicates for smooth infinite scroll -->
+        <img src="partner1.jpeg" alt="Partner 1" />
+        <img src="partner2.png" alt="Partner 2" />
       </div>
     </div>
-  </section>
-      
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+  </div>
+</section>
+ <section id="testimonials" class="section testimonials-section">
+  <h2 class="section-title" data-aos="fade-up">Trusted by the Best</h2>
+  <div class="testimonial-grid">
+    
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="partner6.jpeg" alt="Usha" class="brand-logo" />
+      <p>“Mahavira Print Pack delivers consistent quality and timely service. Our packaging standards have been elevated.”</p>
+      <h4>– Usha</h4>
+    </div>
 
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="partner5.jpeg" alt="Prestige" class="brand-logo" />
+      <p>“The team at Mahavira understands our vision and translates it into stunning packaging every single time.”</p>
+      <h4>– Prestige</h4>
+    </div>
+
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="partner4.jpeg" alt="Borosil" class="brand-logo" />
+      <p>“With Mahavira, we've achieved the premium look we always wanted on shelves. Highly recommended!”</p>
+      <h4>– Borosil</h4>
+    </div>
+
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+      <img src="partner1.jpeg" alt="Client 4" class="brand-logo" />
+      <p>“Excellent quality, reliability, and creative output. Working with Mahavira has been a smooth experience.”</p>
+      <h4>– Ambrane</h4>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="faq" class="section faq">
+    <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+        <h4>Do you offer custom sizes and printing?</h4>
+        <p>Yes, we fully customize size, design, and print for your brand.</p>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+        <h4>Can I order a sample first?</h4>
+        <p>Yes, contact us and we’ll provide a prototype sample.</p>
+      </div>
+
+<div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+  <h4>How long does production take?</h4>
+  <p>Production time ranges between 7–14 working days, depending on complexity and volume.</p>
+</div>
+
+<div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+  <h4>Can you help with packaging design?</h4>
+  <p>Definitely. Our in-house design team assists with layouts, branding, and structural packaging design.</p>
+</div>
+
+<div class="faq-item" data-aos="fade-up" data-aos-delay="800">
+  <h4>What types of lamination or finishes do you offer?</h4>
+  <p>We offer gloss, matte, Scodix UV, foil stamping, embossing, and other premium finishes.</p>
+</div>
+
+
+    </div>
+  </section>
+<section class="contact-section" id="contact" data-aos="fade-up">
+  <h2 class="section-title">Contact Us</h2>
+  <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+    We’d love to hear from you. Reach out with your queries or custom packaging requirements.
+  </p>
   
-  <!-- Scroll Animation Script -->
+  <div class="contact-info">
+    <div class="contact-item" data-aos="fade-right" data-aos-delay="200">
+      <strong>📞 Phone:</strong> <a href="tel:+919654757354">+91 96547 57354</a>
+    </div>
+    <div class="contact-item" data-aos="fade-right" data-aos-delay="300">
+      <strong>📧 Email:</strong> <a href="mailto:mahaviraprintpack@gmail.com">mahaviraprintpack@gmail.com</a>
+    </div>
+    <div class="contact-item" data-aos="fade-right" data-aos-delay="400">
+      <strong>🏢 Address:</strong> D-294, Sector-5, Bawana Indl. Area, New Delhi-110039, Delhi, India
+    </div>
+  </div>
+</section>
+
+<section class="map-section" data-aos="zoom-in-up" data-aos-delay="300">
+  <h2 class="section-title">Find Us on Map</h2>
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3496.391652614724!2d77.07660907475808!3d28.79740037657611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390da95599f6cbb1%3A0x4c2f064fcb36e768!2sMAHAVIRA%20PRINTPACK!5e0!3m2!1sen!2sin!4v1754503703824!5m2!1sen!2sin"
+      width="100%" height="450" style="border:0;" allowfullscreen="" 
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 
 
+  <footer id="contact" class="footer" data-aos="fade-up">
+    <div class="footer-content">
+      <h3>Mahavira Printpack</h3>
+      <p>Delivering excellence in every box.</p>
+      <p>Email: mahaviraprintpack@gmail.com | Phone: +91 9654757354</p>
+     
+    </div>
+  </footer>
 
-<script>
-
-// Contact Form Logic
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
-    if (!contactForm) return; // If no contact form exists, skip
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
-
-        try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                alert('Thank you! We will contact you soon.');
-                contactForm.reset();
-            } else {
-                alert('Error submitting form. Please try again.');
-            }
-        } catch (error) {
-            console.error('Submission Error:', error);
-            alert('An error occurred. Please try again later.');
-        }
+  <script src="script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
     });
-});
-
-
-</script>
+  </script>
 </body>
+
 </html>
